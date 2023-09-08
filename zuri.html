@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Frontend Intern Task</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Add viewport meta tag for responsive design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<style>
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Poppins', sans-serif;
+        margin: 0; 
+        padding: 0;
+        height: 100vh; 
+        width: 100%; 
+    }
+
+    main {
+        background: #fff;
+        box-shadow: 5px 5px 10px #ccc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        max-width: 400px; 
+        width: 80%; 
+    }
+    .header{
+        background: red;
+        width: 100%;
+        color: #fff;
+        text-align: center;
+    }
+     
+    /* Style for Slack Name */
+    [data-testid="slackUserName"] {
+        font-size: 30px; 
+        font-weight: bold;
+    }
+
+    /* Style for Slack Display Picture */
+    [data-testid="slackDisplayImage"] {
+        max-width: 150px; 
+        height: auto; 
+        border: 2px solid #333;
+        border-radius: 50%;
+    }
+
+    /* Style for My Track */
+    [data-testid="myTrack"] {
+        font-style: italic;
+        background-color: red;
+        color: #fff;
+        padding: 4px 8px;
+        margin-top: 10px; 
+    }
+    /* Style for my github url */
+    [data-testid="githubURL"] {
+        font-size: 28px;
+        background: #fff;
+        box-shadow: 5px 5px 10px #ccc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        max-width: 400px; 
+        width: 80%;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            height: 100vh; 
+            width: 100%; 
+        }
+
+        main {
+            width: 100%;
+            max-width: none;
+        }
+        [data-testid="githubURL"] {
+            width: 100%;
+            max-width: none;
+        }
+    }
+</style>
+<div class="header">
+    <h1>Profile Details</h1>
+    </div>
+<main >
+    
+    <!-- Slack Name -->
+    <h1 data-testid="slackUserName">Miracle</h1>
+
+    <!-- Track -->
+    <p data-testid="myTrack">Frontend Track</p>
+
+    <!-- Slack Display Picture -->
+    <img src="slack_img.jpeg" alt="Miracle" data-testid="slackDisplayImage">
+
+    <!-- Current Day of the Week -->
+    <p data-testid="currentDayOfTheWeek"></p>
+
+    <!-- Current UTC Time -->
+    <p data-testid="currentUTCTime"></p>
+
+    <!-- Github Url -->
+    <div data-testid="githubURL">
+        <i class="fa fa-github"></i>
+        <a href="https://github.com/Mhiracul/profile"></a>
+    </div>
+</main>
+
+<script>
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const today = new Date();
+    const currentDayOfWeek = daysOfWeek[today.getUTCDay()];
+    const currentUTCTime = today.toISOString().substr(11, 8);
+
+    document.querySelector('[data-testid="currentDayOfTheWeek"]').textContent = currentDayOfWeek;
+    document.querySelector('[data-testid="currentUTCTime"]').textContent = currentUTCTime;
+</script>
+</body>
+</html>
